@@ -2,6 +2,8 @@ defmodule ContexSampleWeb.Router do
   require Logger
   use ContexSampleWeb, :router
 
+  import Phoenix.LiveDashboard.Router
+
   def basic_log(conn, _opts) do
     # live routes don't emit logs with request path
     ip = conn.remote_ip |> Tuple.to_list() |> Enum.join(".")
@@ -34,6 +36,7 @@ defmodule ContexSampleWeb.Router do
     live "/gantt", GanttLive, layout: {ContexSampleWeb.LayoutView, :root}
     live "/point", PointPlotLive, layout: {ContexSampleWeb.LayoutView, :root}
     live "/scales", ScalesLive, layout: {ContexSampleWeb.LayoutView, :root}
+    live_dashboard "/dashboard", metrics: ContexSampleWeb.Telemetry
   end
 
 end

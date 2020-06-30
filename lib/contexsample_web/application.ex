@@ -6,6 +6,7 @@ defmodule ContexSample.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
+      ContexSampleWeb.Telemetry,
       ContexSampleWeb.Endpoint,
       {Phoenix.PubSub, [name: Contexsample.PubSub, adapter: Phoenix.PubSub.PG2]}
     ]

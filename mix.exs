@@ -20,7 +20,7 @@ defmodule Contexsample.MixProject do
   def application do
     [
       mod: {ContexSample.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :os_mon]
     ]
   end
 
@@ -38,6 +38,7 @@ defmodule Contexsample.MixProject do
       {:phoenix_html, "~> 2.13"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.13.1"},
+      {:phoenix_live_dashboard, "~> 0.1"},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2.1"},
       {:plug_cowboy, "~> 2.3"},
@@ -47,6 +48,8 @@ defmodule Contexsample.MixProject do
       {:remote_ip, "~> 0.2"},
       {:makeup, "~> 1.0.3"},
       {:makeup_elixir, "~> 0.14.1"},
+      {:telemetry_poller, "~> 0.4"},
+      {:telemetry_metrics, "~> 0.4"},
       {:benchee, "~> 1.0", only: :dev}
     ]
   end
